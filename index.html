@@ -1691,6 +1691,46 @@
         .skip-link:focus {
             top: 0;
         }
+        
+        /* WeChat QR Code Modal Styles */
+        .wechat-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .wechat-modal-content {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .wechat-modal img {
+            max-width: 100%;
+            margin: 20px 0;
+        }
+        
+        .wechat-modal-close {
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -2483,6 +2523,7 @@
                     <div class="footer-social">
                         <a href="https://www.facebook.com/profile.php?id=61582887835446" aria-label="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
                         <a href="https://www.instagram.com/treartinteriors/" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="WeChat" onclick="showWeChatQR()"><i class="fab fa-weixin"></i></a>
                     </div>
                 </div>
                 
@@ -2545,6 +2586,16 @@
             <div class="carousel-caption" id="carouselCaption">
                 <!-- 图片描述将通过JavaScript动态添加 -->
             </div>
+        </div>
+    </div>
+
+    <!-- WeChat QR Code Modal -->
+    <div id="wechatModal" class="wechat-modal">
+        <div class="wechat-modal-content">
+            <h3 data-en="WeChat Contact" data-tc="WeChat 聯繫" data-sc="WeChat 联系">WeChat 聯繫</h3>
+            <p data-en="Please scan the QR code below to add our WeChat account" data-tc="請掃描以下二維碼添加我們的WeChat帳號" data-sc="请扫描以下二维码添加我们的WeChat账号">請掃描以下二維碼添加我們的WeChat帳號</p>
+            <img src="wechat-qr.jpg" alt="WeChat QR Code" data-en="WeChat QR Code" data-tc="WeChat 二維碼" data-sc="WeChat 二维码">
+            <button class="wechat-modal-close" onclick="closeWeChatModal()" data-en="Close" data-tc="關閉" data-sc="关闭">關閉</button>
         </div>
     </div>
 
@@ -3163,10 +3214,15 @@
         }
         
         function showWeChatQR() {
-            showCustomAlert(
-                currentLanguage === 'en' ? 'WeChat Contact' : 'WeChat 聯繫',
-                currentLanguage === 'en' ? 'Please scan the QR code below to add our WeChat account' : '請掃描以下二維碼添加我們的WeChat帳號'
-            );
+            const modal = document.getElementById('wechatModal');
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // 防止背景滚动
+        }
+        
+        function closeWeChatModal() {
+            const modal = document.getElementById('wechatModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = ''; // 恢复背景滚动
         }
     </script>
 </body>
