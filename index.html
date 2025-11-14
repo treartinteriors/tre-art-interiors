@@ -477,6 +477,10 @@
         
         .hero-content {
             max-width: 800px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
         
         .hero-content h1 {
@@ -485,39 +489,15 @@
             letter-spacing: 2px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
             font-weight: 400;
+            text-align: center;
         }
         
         .hero-content p {
             font-size: 1.1rem; /* 减小字体大小 */
-            margin: 0 auto 40px;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
             max-width: 600px;
             line-height: 1.8;
-        }
-        
-        .hero-stats {
-            display: flex;
-            justify-content: center;
-            gap: 80px;
-            margin: 60px 0;
-        }
-        
-        .stat-item {
             text-align: center;
-            color: white;
-        }
-        
-        .stat-number {
-            font-size: 2.5rem; /* 减小字体大小 */
-            font-weight: 700;
-            color: white;
-            margin-bottom: 10px;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-        }
-        
-        .stat-label {
-            font-size: 1rem;
-            opacity: 0.9;
         }
         
         /* 按钮样式 - 确保所有设备上宽度一致 */
@@ -1431,10 +1411,6 @@
         
         /* Responsive Styles */
         @media (max-width: 1024px) {
-            .hero-stats {
-                gap: 60px;
-            }
-            
             .contact-grid {
                 flex-direction: column;
             }
@@ -1495,11 +1471,6 @@
             
             .hero-content h1 {
                 font-size: 2.5rem;
-            }
-            
-            .hero-stats {
-                flex-direction: column;
-                gap: 30px;
             }
             
             .services-grid,
@@ -1775,24 +1746,6 @@
                 <div class="hero-content">
                     <h1>Tre Art Interiors</h1>
                     <p data-en="Craftsmanship in Design, Creating Spatial Soul" data-tc="匠心設計，成就空間靈魂" data-sc="匠心设计，成就空间灵魂">匠心設計，成就空間靈魂</p>
-                    
-                    <div class="hero-stats">
-                        <div class="stat-item">
-                            <div class="stat-number">20+</div>
-                            <div class="stat-label" data-en="Years of Design Experience" data-tc="年設計經驗" data-sc="年设计经验">年設計經驗</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">1000+</div>
-                            <div class="stat-label" data-en="Completed Projects" data-tc="已完成項目" data-sc="已完成项目">已完成項目</div>
-                        </div>
-                    </div>
-                    
-                    <div class="button-group">
-                        <!-- 獲取免費報價 button - 添加跳转到联系我们页面 -->
-                        <a href="#" onclick="showPage('contact')" class="btn" data-en="Get Free Quote" data-tc="獲取免費報價" data-sc="获取免费报价">獲取免費報價</a>
-                        <!-- 查看作品 button - 添加跳转到我们的作品页面 -->
-                        <a href="#" onclick="showPage('projects')" class="btn btn-secondary" data-en="View Projects" data-tc="查看作品" data-sc="查看作品">查看作品</a>
-                    </div>
                 </div>
             </section>
             
