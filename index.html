@@ -629,11 +629,22 @@
             section { padding: 80px 0; }
             .stats-grid { gap: 44px; }
             .project-overlay h3 { font-size: 1.4rem; }
+
+            /* About & Contact hero: show FULL image on mobile (no crop of corner brand) */
+            .page-hero.hero-contain-mobile {
+                background-size: cover, contain !important;
+                background-position: center center, center center !important;
+                background-repeat: no-repeat, no-repeat !important;
+                background-color: var(--dark-color);
+                height: 380px;
+            }
         }
         @media (max-width: 576px) {
             .hero-content h1 { font-size: 2.1rem; }
             .hero-content p { font-size: 1rem; }
             .page-hero { height: 420px; }
+            /* keep full-image heroes shorter so the letterboxing stays minimal */
+            .page-hero.hero-contain-mobile { height: 340px; }
         }
     </style>
 </head>
@@ -904,7 +915,7 @@
                 </div>
             </div>
 
-            <section class="page-hero" style="background: linear-gradient(rgba(45,45,45,0.55), rgba(45,45,45,0.55)), url('Tre Art_office_About.jpg') no-repeat center center/cover;">
+            <section class="page-hero hero-contain-mobile" style="background: linear-gradient(rgba(45,45,45,0.55), rgba(45,45,45,0.55)), url('Tre Art_office_About.jpg') no-repeat center center/cover;">
                 <div class="page-hero-content">
                     <span class="section-label">About Us</span>
                     <h1 data-en="About Us" data-tc="關於我們" data-sc="关于我们">關於我們</h1>
@@ -1273,7 +1284,7 @@
                 </div>
             </div>
 
-            <section class="page-hero" style="background: linear-gradient(rgba(45,45,45,0.6), rgba(45,45,45,0.6)), url('Tre Art_office_contact.jpg') no-repeat center center/cover;">
+            <section class="page-hero hero-contain-mobile" style="background: linear-gradient(rgba(45,45,45,0.6), rgba(45,45,45,0.6)), url('Tre Art_office_contact.jpg') no-repeat center center/cover;">
                 <div class="page-hero-content">
                     <span class="section-label">Get In Touch</span>
                     <h1 data-en="Contact Us" data-tc="聯絡我們" data-sc="联络我们">聯絡我們</h1>
