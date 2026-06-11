@@ -169,6 +169,8 @@
         /* ---------- Page wrapper ---------- */
         .page-content { display: none; min-height: 100vh; }
         .page-content.active { display: block; }
+        /* Offset inner pages so the fixed (enlarged-logo) header doesn't overlap the banner */
+        .page-content:not(#home-page) { padding-top: 120px; }
 
         /* ---------- Hero ---------- */
         .hero {
