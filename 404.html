@@ -129,8 +129,8 @@
         header.scrolled .header-inner { padding: 12px 0; }
 
         .logo { display: flex; align-items: center; text-decoration: none; }
-        .logo img { height: 82px; width: auto; transition: var(--transition); filter: brightness(0) invert(1); }
-        header.scrolled .logo img { filter: none; height: 64px; }
+        .logo img { height: 123px; width: auto; transition: var(--transition); filter: brightness(0) invert(1); }
+        header.scrolled .logo img { filter: none; height: 96px; }
 
         .nav-menu { display: flex; list-style: none; align-items: center; }
         .nav-menu li { margin-left: 34px; }
@@ -184,12 +184,20 @@
             opacity: 0; animation: fadeUp 1s .2s forwards;
         }
         .hero-content h1 {
-            font-size: 5rem; margin-bottom: 22px; letter-spacing: 3px; font-weight: 500;
+            font-size: 5rem; margin-bottom: 14px; letter-spacing: 3px; font-weight: 500;
             text-shadow: 0 2px 20px rgba(0,0,0,.3); opacity: 0; animation: fadeUp 1s .4s forwards;
         }
+        .hero-subname {
+            font-family: 'Noto Sans TC', sans-serif;
+            font-size: 1.5rem; letter-spacing: 6px; font-weight: 400;
+            color: #f0eeec; margin-bottom: 22px;
+            text-shadow: 0 2px 14px rgba(0,0,0,.35);
+            opacity: 0; animation: fadeUp 1s .55s forwards;
+        }
+        .hero-subname:empty { display: none; animation: none; }
         .hero-content p {
             font-size: 1.15rem; max-width: 600px; line-height: 1.9; font-weight: 300;
-            letter-spacing: 2px; opacity: 0; animation: fadeUp 1s .6s forwards;
+            letter-spacing: 2px; opacity: 0; animation: fadeUp 1s .65s forwards;
         }
         .hero .button-group { opacity: 0; animation: fadeUp 1s .8s forwards; margin-top: 40px; }
         @keyframes fadeUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
@@ -605,6 +613,7 @@
             .language-switcher { margin: 18px 0 0; }
             .language-switcher button, header.scrolled .language-switcher button { color: #fff; }
             .hero-content h1 { font-size: 2.6rem; }
+            .hero-subname { font-size: 1.15rem; letter-spacing: 4px; }
             .services-image-grid { grid-template-columns: 1fr; }
             .masonry { grid-template-columns: 1fr; grid-auto-rows: 240px; }
             .m-pavilia, .m-oasis, .m-coast, .m-cairnhill { grid-column: span 1; grid-row: span 1; }
@@ -662,6 +671,7 @@
         }
         @media (max-width: 576px) {
             .hero-content h1 { font-size: 2.1rem; }
+            .hero-subname { font-size: 1rem; letter-spacing: 3px; }
             .hero-content p { font-size: 1rem; }
             .page-hero { height: 420px; }
         }
@@ -709,6 +719,7 @@
                 <div class="hero-content">
                     <div class="hero-tag" data-en="Premium Interior Design · Renovation · Custom Furniture" data-tc="高端室內設計 · 專業裝修 · 訂造傢俬" data-sc="高端室内设计 · 专业装修 · 订造家具">高端室內設計 · 專業裝修 · 訂造傢俬</div>
                     <h1>Tre Art Interiors</h1>
+                    <div class="hero-subname" data-en="" data-tc="名創室內設計有限公司" data-sc="名创室内设计有限公司">名創室內設計有限公司</div>
                     <p data-en="Craftsmanship in Design, Creating Spatial Soul" data-tc="匠心設計，成就空間靈魂" data-sc="匠心设计，成就空间灵魂">匠心設計，成就空間靈魂</p>
                 </div>
                 <div class="scroll-cue">SCROLL ↓</div>
@@ -898,7 +909,7 @@
                                 <select name="projectNeeds" required>
                                     <option value="" data-en="Select Project Needs" data-tc="選擇項目需求" data-sc="选择项目需求">選擇項目需求</option>
                                     <option value="furniture" data-en="Custom Furniture" data-tc="訂造傢俬" data-sc="订造家具">訂造傢俬</option>
-                                    <option value="decoration" data-en="Decoration Works" data-tc="裝潢工程" data-sc="装潢工程">裝潢工程</option>
+                                    <option value="decoration" data-en="Decoration Works" data-tc="裝修工程" data-sc="装修工程">裝修工程</option>
                                     <option value="both" data-en="Both" data-tc="以上皆是" data-sc="以上皆是">以上皆是</option>
                                 </select>
                             </div>
@@ -1346,7 +1357,7 @@
                                 <select id="projectNeeds" name="projectNeeds" required>
                                     <option value="" data-en="Select Project Needs" data-tc="選擇項目需求" data-sc="选择项目需求">選擇項目需求</option>
                                     <option value="furniture" data-en="Custom Furniture" data-tc="訂造傢俬" data-sc="订造家具">訂造傢俬</option>
-                                    <option value="decoration" data-en="Decoration Works" data-tc="裝潢工程" data-sc="装潢工程">裝潢工程</option>
+                                    <option value="decoration" data-en="Decoration Works" data-tc="裝修工程" data-sc="装修工程">裝修工程</option>
                                     <option value="both" data-en="Both" data-tc="以上皆是" data-sc="以上皆是">以上皆是</option>
                                 </select>
                             </div>
@@ -1884,10 +1895,8 @@
             if (lang === 'tc' || lang === 'sc') document.body.classList.add('chinese');
             document.querySelectorAll(`[data-${lang}]`).forEach(element => {
                 const text = element.getAttribute(`data-${lang}`);
-                if (text) {
-                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') element.placeholder = text;
-                    else element.textContent = text;
-                }
+                if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') element.placeholder = text;
+                else element.textContent = text;
             });
             const titles = {
                 'en': 'Tre Art Interiors Limited | Premium Interior Design Hong Kong',
